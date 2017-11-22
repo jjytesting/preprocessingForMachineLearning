@@ -45,4 +45,13 @@ def color_3():
     # 'PuBu_r', 'PuOr', 'PuOr_r', 'PuRd', 'PuRd_r', 'Purples', 'Purples_r', 'RdBu', 'RdBu_r', 'RdGy', 'RdGy_r', 'RdPu', 'RdPu_r', 'RdYlBu',
     # 'RdYlBu_r', 'RdYlGn', 'RdYlGn_r', 'Reds', 'Reds_r', 'Set1', 'Set1_r', 'Set2', 'Set2_r', 'Set3', 'Set3_r', 'Spectral', 'Spectral_r', ...]
 
+    x = np.arange(100)
+    y = x
+    t = x
+
+    _, (ax1, ax2) = plt.subplots(1,2)
+    ax1.scatter(x, y, c=t, cmap='viridis')
+    ax2.scatter(x, y, c=t, cmap='viridis_r')
+    plt.show()
+
 color_3()
