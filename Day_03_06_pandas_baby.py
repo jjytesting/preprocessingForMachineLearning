@@ -62,7 +62,7 @@ print(top5)
 
 # 문제
 # 남자와 여자 이름이 같은 데이터를 찾아 보세요.
-
+'''
 women_only = names[names.Gender == 'F']
 #men_only.index = men_only.Name
 #women_only.index = women_only.Name
@@ -74,3 +74,16 @@ for name in women_only.Name:
 #for name in women_only.Name:
 
 print(both)
+'''
+
+by_count = names.groupby('Name').size()
+print(by_count)
+
+over_one = by_count > 1
+over_one = by_count.index[by_count>1]
+print(over_one)
+
+by_names = names.pivot_table('Birth', index='Name', columns='Gender')
+#print(by_names)
+print(by_names[by_count>1])
+print(by_names.loc[over_one])
