@@ -58,7 +58,7 @@ def show_result(train_x, test_x, train_y, test_y, classifiers):
 
         train_pred = clf.predict(test_x)
 
-        train_loss = clf.predict_proba(test_x)
+        train_loss = clf.predict_proba(test_x) #cost비용 예측, 딥러닝에서 이게 적으면 좋은거
 
         acc = accuracy_score(test_y, train_pred)
         loss = log_loss(test_y, train_loss)
@@ -73,9 +73,10 @@ classifiers = [KNeighborsClassifier(n_neighbors=3),
                AdaBoostClassifier(),
                GradientBoostingClassifier(),
                GaussianNB(),
-               LinearDiscriminantAnalysis(),
+               LinearDiscriminantAnalysis(), # 성능 가장 좋게 나옴 # 선형 판별 분석
                QuadraticDiscriminantAnalysis()]
 sss = model_selection.StratifiedShuffleSplit(n_splits=10, test_size=0.2, random_state=23) #데이터가 편중되지 않도록 자동으로 섞어줌
+#10개로 쪼개서 10번 반복함
 
 for train_index, test_index in sss.split(leaf, label):
     train_x, test_x = leaf.values[train_index], leaf.values[test_index]
