@@ -1,4 +1,4 @@
-# http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html 
+# http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -31,6 +31,7 @@ def regression_tensor(train_x, test_x, train_y, test_y):
         y_hat = sess.run(hypothesis, feed_dict={x_holder: x_data}) # 사이킷런의 프리딕트 유사 예측하기
 
         y_mean = np.mean(y_data)
+        # http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html#sklearn.linear_model.LinearRegression.score 
         u = np.sum((y_hat - y_data) ** 2) # 정답과 내가 생각한 값의 거리 분자
         v = np.sum((y_mean - y_data) ** 2)
 
